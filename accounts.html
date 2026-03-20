@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>My 8bp Accounts | Buy 8 Ball Pool IDs</title>
+  <meta name="description" content="Buy premium 8 Ball Pool accounts with billions of coins. All tables open, name change possible, fresh accounts, free cues on trophy road.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a1f1a 0%, #1e3a2f 30%, #2a1e2c 70%, #1e2a3a 100%);
+      color: #fff3e0;
+      min-height: 100vh;
+    }
+
+    /* colorful pool ball particles background */
+    body::before {
+      content: "⚫ 🔴 🟡 🟢 🔵 🟠 🟣 ⚪";
+      position: fixed;
+      bottom: 5px;
+      left: 0;
+      width: 100%;
+      font-size: 40px;
+      opacity: 0.07;
+      text-align: center;
+      pointer-events: none;
+      white-space: nowrap;
+      overflow: hidden;
+      letter-spacing: 15px;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* header */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 4px solid #ffb347;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(8px);
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 30px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo-img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 50%;
+      background: #f5b642;
+      border: 3px solid #ffdd99;
+      box-shadow: 0 0 12px rgba(255,180,70,0.5);
+    }
+
+    .brand h1 {
+      font-size: 1.9rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFD966, #FFB347, #FF8C42);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .brand p {
+      font-size: 0.75rem;
+      color: #ffdd99;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa, .btn-tg, .btn-home {
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+    }
+    .btn-wa:hover { background: #20b859; transform: translateY(-2px); }
+
+    .btn-tg {
+      background: #26A5E4;
+      color: #fff;
+    }
+    .btn-tg:hover { background: #1e8fc9; transform: translateY(-2px); }
+
+    .btn-home {
+      background: linear-gradient(135deg, #F4C542, #E5A42B);
+      color: #1f2a1b;
+      font-weight: 800;
+    }
+    .btn-home:hover { transform: translateY(-2px); background: linear-gradient(135deg, #ffcf5a, #f0b338); }
+
+    /* page title */
+    .page-title {
+      font-size: 2.5rem;
+      margin: 30px 0 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #FFD966, #FFA559);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .subhead {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #e6d5b3;
+    }
+
+    /* accounts grid */
+    .accounts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 35px;
+      margin: 40px 0 50px;
+    }
+
+    .account-card {
+      background: rgba(15, 25, 22, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 180, 71, 0.5);
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+    }
+
+    .account-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px rgba(0,0,0,0.4);
+      border-color: #ffb347;
+    }
+
+    /* video container */
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      background: #000;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .account-details {
+      padding: 20px 22px 25px;
+    }
+
+    .account-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .coins {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFD966, #FFB347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .price {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #f5bc70;
+      background: rgba(0,0,0,0.5);
+      padding: 4px 12px;
+      border-radius: 40px;
+    }
+
+    .account-code {
+      background: #ffb34730;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 8px 0 12px;
+      color: #ffd58c;
+      letter-spacing: 0.5px;
+    }
+
+    /* common features list (exactly 4 points) */
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0;
+      border-top: 1px dashed rgba(255,180,71,0.4);
+      padding-top: 16px;
+    }
+    .feature-badge {
+      background: rgba(0,0,0,0.5);
+      border-radius: 50px;
+      padding: 5px 12px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffe0aa;
+    }
+    .feature-badge i {
+      color: #ffb347;
+      font-size: 0.7rem;
+    }
+
+    .buy-btn {
+      width: 100%;
+      margin-top: 18px;
+      background: linear-gradient(95deg, #25A36F, #1f8a5c);
+      border: none;
+      padding: 14px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .buy-btn:hover {
+      background: linear-gradient(95deg, #2ebd82, #28a06e);
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    /* terms & process section */
+    .info-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin: 60px 0 40px;
+    }
+    .info-card {
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      border-radius: 40px;
+      padding: 28px;
+      border-left: 6px solid #ffb347;
+    }
+    .info-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: #ffd966;
+    }
+    .info-card p, .info-card li {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .info-card ul {
+      list-style: none;
+    }
+    .info-card li i {
+      color: #ffb347;
+      margin-right: 10px;
+    }
+
+    .footer {
+      margin-top: 60px;
+      border-top: 2px solid #ffb347;
+      padding: 30px 0 40px;
+      text-align: center;
+    }
+    .footer a {
+      color: #ffc857;
+      margin: 0 12px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 850px) {
+      .accounts-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 20px; }
+      .navbar { flex-direction: column; gap: 15px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- Header with navigation -->
+  <div class="navbar">
+    <div class="logo-area">
+      <img class="logo-img" src="https://drive.google.com/uc?export=view&id=1JZEt7_Dvj_d69_X1qX8Qi_U3CgRIIJL4" alt="My 8bp Accounts" onerror="this.src='https://placehold.co/200x200/2d5a3b/d4af37?text=8BP';">
+      <div class="brand">
+        <h1>My 8bp Accounts</h1>
+        <p><i class="fas fa-table-tennis"></i> 8 BALL POOL | PREMIUM IDs</p>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <a href="https://whatsapp.com/channel/0029Vb2IJGtCcW4nWh5kSa3e" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="https://t.me/pskgamesofficial" target="_blank" class="btn-tg"><i class="fab fa-telegram"></i> Telegram</a>
+      <a href="index.html" class="btn-home"><i class="fas fa-home"></i> Home</a>
+    </div>
+  </div>
+
+  <h1 class="page-title"><i class="fas fa-gamepad"></i> Available Accounts</h1>
+  <p class="subhead">🎱 Premium Guest Accounts • All tables open • Name change Possible • Fresh & secure</p>
+
+  <!-- Accounts Grid -->
+  <div class="accounts-grid" id="accountsGrid"></div>
+
+  <!-- Important Terms and Conditions + Account Process (repeated for clarity) -->
+  <div class="info-section">
+    <div class="info-card">
+      <h3><i class="fas fa-file-contract"></i> Terms & Conditions</h3>
+      <ul>
+        <li><i class="fas fa-coins"></i> Don't buy beyond budget — commission basis, non-refundable once purchased.</li>
+        <li><i class="fas fa-exchange-alt"></i> Accounts are outsourced → no refund after buying.</li>
+        <li><i class="fas fa-robot"></i> Only buy if you want big table experience or okay to face tool players.</li>
+        <li><i class="fas fa-comment-dots"></i> For doubts, contact Telegram: <strong>@pskgamesofficial</strong></li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3><i class="fas fa-mobile-alt"></i> How to Buy (Guest Account)</h3>
+      <p><strong>Step 1:</strong> Create a new Gmail OR Facebook account.<br>
+      <strong>Step 2:</strong> Send the ID & Password via Telegram.<br>
+      <strong>⚠️ DO NOT open 8 Ball Pool with that account.</strong><br>
+      <strong>Step 3:</strong> We'll link your game ID and return the ready account.<br>
+      📱 Android: GooglePlay / Facebook | 🍏 iPhone: Facebook account required.<br>
+      <i class="fas fa-exclamation-triangle"></i> Most Important: After creation, don't open the game!</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 My 8bp Accounts — Premium 8 Ball Pool Marketplace</p>
+    <div>
+      <a href="https://whatsapp.com/channel/0029Vb2IJGtCcW4nWh5kSa3e" target="_blank">WhatsApp Channel</a>
+      <a href="https://t.me/pskgamesofficial" target="_blank">Telegram Support</a>
+      <a href="index.html">Back to Home</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Accounts data with video URLs, coins, price, account code, and direct Telegram buy link
+  const accounts = [
+    {
+      coins: "113 Million Coins",
+      price: "Rs. 270/-",
+      code: "#55 - 04.09",
+      video: "https://www.youtube.com/embed/DTPXcKZnrU8?si=PuU4NAg3ymmOHJsq&autoplay=0&rel=0",
+      buyMessage: "I would like to purchase an account. The account code is: #55 - 04.09."
+    },
+    {
+      coins: "210 Million Coins",
+      price: "Rs. 350/-",
+      code: "#59 - 04.09",
+      video: "https://www.youtube.com/embed/Cn5t0S7amUY?si=ddU-DbzSmi6M01rY&autoplay=0&rel=0",
+      buyMessage: "I would like to purchase an account. The account code is: #59 - 04.09."
+    },
+    {
+      coins: "305 Million Coins",
+      price: "Rs. 430/-",
+      code: "#56 - 04.09",
+      video: "https://www.youtube.com/embed/wjEDNlIynLA?si=FRYXAAuic1eEV9N8&autoplay=0&rel=0",
+      buyMessage: "I would like to purchase an account. The account code is: #56 - 04.09."
+    },
+    {
+      coins: "416 Million Coins",
+      price: "Rs. 480/-",
+      code: "#57 - 04.09",
+      video: "https://www.youtube.com/embed/c8W_4sNKgUo?si=x7z8WIVp0WadZT8j&autoplay=0&rel=0",
+      buyMessage: "I would like to purchase an account. The account code is: #57 - 04.09."
+    },
+    {
+      coins: "544 Million Coins",
+      price: "Rs. 560/-",
+      code: "#103 - 04.09",
+      video: "https://www.youtube.com/embed/TpbD9ul_AKE?si=rd7kyWrgTIiLgSIy&autoplay=0&rel=0",
+      buyMessage: "I would like to purchase an account. The account code is: #103 - 04.09."
+    },
+    {
+      coins: "1.09 Billion Coins",
+      price: "Rs. 800/-",
+      code: "#150 - 04.09",
+      video: "https://www.youtube.com/embed/F5pXDhGV6Sg?si=qubU1c85_iX3EU6C&autoplay=0&rel=0",
+      buyMessage: "I would like to purchase an account. The account code is: #150 - 04.09."
+    }
+  ];
+
+  // Common features that will be displayed for EVERY account (exactly 4 points)
+  const commonFeatures = [
+    { icon: "fas fa-table-tennis", text: "All Tables Open" },
+    { icon: "fas fa-user-edit", text: "Name Change Possible" },
+    { icon: "fas fa-seedling", text: "Fresh Account" },
+    { icon: "fas fa-gift", text: "Free Cues From Trophy Road" }
+  ];
+
+  const telegramBase = "https://t.me/pskgamesofficial";
+
+  function generateAccountCards() {
+    const grid = document.getElementById("accountsGrid");
+    if (!grid) return;
+
+    let html = "";
+    for (let acc of accounts) {
+      // encode message for Telegram
+      const encodedMsg = encodeURIComponent(acc.buyMessage);
+      const telegramLink = `${telegramBase}?text=${encodedMsg}`;
+
+      // generate feature badges HTML
+      let featuresHtml = "";
+      for (let feat of commonFeatures) {
+        featuresHtml += `<span class="feature-badge"><i class="${feat.icon}"></i> ${feat.text}</span>`;
+      }
+
+      html += `
+        <div class="account-card">
+          <div class="video-container">
+            <iframe src="${acc.video}" title="Account Preview: ${acc.coins}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="account-details">
+            <div class="account-header">
+              <span class="coins"><i class="fas fa-coins"></i> ${acc.coins}</span>
+              <span class="price">${acc.price}</span>
+            </div>
+            <div class="account-code"><i class="fas fa-hashtag"></i> Account Code: ${acc.code}</div>
+            <div class="features-list">
+              ${featuresHtml}
+            </div>
+            <button class="buy-btn" data-telegram-link="${telegramLink}">
+              <i class="fab fa-telegram"></i> Buy Now via Telegram
+            </button>
+          </div>
+        </div>
+      `;
+    }
+    grid.innerHTML = html;
+
+    // attach event listeners to all buy buttons
+    const buttons = document.querySelectorAll('.buy-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const link = this.getAttribute('data-telegram-link');
+        if (link) {
+          window.open(link, '_blank');
+        } else {
+          window.open(telegramBase, '_blank');
+        }
+      });
+    });
+  }
+
+  // initialize on page load
+  document.addEventListener('DOMContentLoaded', generateAccountCards);
+</script>
+</body>
+</html>
