@@ -396,29 +396,8 @@
     { icon: "fas fa-trophy", text: "Free Cues From Trophy Road" }
   ];
   
-  // Normal accounts data
+  // Normal accounts data - ONLY AVAILABLE ACCOUNTS (#57 - 04.09 and #103 - 04.09)
   const normalAccounts = [
-    {
-      coins: "113 Million Coins",
-      price: "Rs. 270/-",
-      code: "#55 - 04.09",
-      video: "https://www.youtube.com/embed/DTPXcKZnrU8?autoplay=0&rel=0&modestbranding=1",
-      buyMessage: "I would like to purchase an account. The account code is: #55 - 04.09."
-    },
-    {
-      coins: "210 Million Coins",
-      price: "Rs. 350/-",
-      code: "#59 - 04.09",
-      video: "https://www.youtube.com/embed/Cn5t0S7amUY?autoplay=0&rel=0&modestbranding=1",
-      buyMessage: "I would like to purchase an account. The account code is: #59 - 04.09."
-    },
-    {
-      coins: "305 Million Coins",
-      price: "Rs. 430/-",
-      code: "#56 - 04.09",
-      video: "https://www.youtube.com/embed/wjEDNlIynLA?autoplay=0&rel=0&modestbranding=1",
-      buyMessage: "I would like to purchase an account. The account code is: #56 - 04.09."
-    },
     {
       coins: "416 Million Coins",
       price: "Rs. 480/-",
@@ -432,13 +411,6 @@
       code: "#103 - 04.09",
       video: "https://www.youtube.com/embed/TpbD9ul_AKE?autoplay=0&rel=0&modestbranding=1",
       buyMessage: "I would like to purchase an account. The account code is: #103 - 04.09."
-    },
-    {
-      coins: "1.09 Billion Coins",
-      price: "Rs. 800/-",
-      code: "#150 - 04.09",
-      video: "https://www.youtube.com/embed/F5pXDhGV6Sg?autoplay=0&rel=0&modestbranding=1",
-      buyMessage: "I would like to purchase an account. The account code is: #150 - 04.09."
     }
   ];
   
@@ -446,6 +418,19 @@
   
   function generateCards() {
     const grid = document.getElementById("accountsGrid");
+    
+    if (normalAccounts.length === 0) {
+      grid.innerHTML = `
+        <div style="text-align: center; padding: 60px; background: rgba(0,0,0,0.5); border-radius: 40px; grid-column: 1/-1;">
+          <i class="fas fa-box-open" style="font-size: 4rem; color: #ffb347; margin-bottom: 20px;"></i>
+          <h3>No Accounts Available</h3>
+          <p>New accounts will be added soon. Please check back later!</p>
+          <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 12px 28px; background: linear-gradient(135deg, #FFB347, #FF8C42); border-radius: 50px; color: #1a2a1a; text-decoration: none; font-weight: 700;">Back to Home</a>
+        </div>
+      `;
+      return;
+    }
+    
     let html = "";
     
     for (let i = 0; i < normalAccounts.length; i++) {
@@ -512,5 +497,20 @@
     createFloatingBalls();
   });
 </script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69c2796883db181c34d2ca37/1jkfqkggj';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
 </body>
 </html>
