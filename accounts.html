@@ -10,7 +10,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -19,6 +23,7 @@
       min-height: 100vh;
     }
 
+    /* Floating Background Balls */
     .bg-balls {
       position: fixed;
       top: 0;
@@ -33,31 +38,33 @@
     .floating-ball {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.08;
-      animation: floatBall 20s infinite ease-in-out;
+      opacity: 0.05;
+      animation: floatBall 25s infinite ease-in-out;
     }
 
     @keyframes floatBall {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-50px) rotate(180deg); }
+      50% { transform: translateY(-60px) rotate(180deg); }
     }
 
     .container {
-      max-width: 600px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 24px;
       position: relative;
       z-index: 2;
     }
 
+    /* Header */
     .navbar {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 0;
-      border-bottom: 3px solid #ffb347;
-      margin-bottom: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 180, 71, 0.2);
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
     .logo-area {
@@ -68,8 +75,8 @@
     }
 
     .logo-img {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       object-fit: contain;
       background: linear-gradient(135deg, #1e3a2a, #0a2a1a);
       border-radius: 50%;
@@ -94,31 +101,36 @@
 
     .action-buttons {
       display: flex;
-      gap: 8px;
+      gap: 12px;
     }
 
-    .btn-wa, .btn-tg, .btn-home {
-      padding: 6px 12px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 0.7rem;
-      text-decoration: none;
-      display: inline-flex;
+    .btn-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      transform: translateY(-2px);
     }
 
     .btn-wa { background: #25D366; color: #fff; }
     .btn-tg { background: #26A5E4; color: #fff; }
     .btn-home { background: linear-gradient(135deg, #F4C542, #E5A42B); color: #1f2a1b; }
 
+    /* Page Header */
     .page-header {
       text-align: center;
-      margin: 20px 0;
+      margin-bottom: 32px;
     }
 
     .page-header h1 {
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-family: 'Orbitron', monospace;
       background: linear-gradient(135deg, #FFD966, #FFA559);
       -webkit-background-clip: text;
@@ -127,173 +139,281 @@
     }
 
     .page-header p {
-      font-size: 0.8rem;
-      color: #e6d5b3;
+      font-size: 0.9rem;
+      color: #b8d4c8;
+      margin-top: 8px;
     }
 
-    .filter-bar {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 10px 0;
-      margin-bottom: 20px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .filter-bar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .filter-chip {
-      background: rgba(255,255,255,0.1);
-      padding: 8px 16px;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: 1px solid rgba(255,180,71,0.3);
-    }
-
-    .filter-chip.active {
-      background: #ffb347;
-      color: #1a2a1a;
-      border-color: #ffb347;
-    }
-
-    .filter-chip:active {
-      transform: scale(0.95);
-    }
-
-    .accounts-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin: 20px 0;
-    }
-
-    .account-card {
-      background: rgba(15, 25, 22, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 180, 71, 0.3);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .account-card:active {
-      transform: scale(0.98);
-    }
-
-    .account-card-content {
-      padding: 16px;
+    /* Filter Section */
+    .filter-section {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 16px;
+      margin-bottom: 32px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      border-radius: 60px;
+      border: 1px solid rgba(255, 180, 71, 0.15);
     }
 
-    .account-info {
-      flex: 2;
+    .filter-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #ffdd99;
+    }
+
+    .filter-scroll {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 180, 71, 0.2);
+      color: #e6d5b3;
+    }
+
+    .filter-chip:hover {
+      background: rgba(255, 180, 71, 0.15);
+    }
+
+    .filter-chip.active {
+      background: linear-gradient(135deg, #ffb347, #ff8c42);
+      color: #1a2a1a;
+      border-color: transparent;
+      font-weight: 600;
+    }
+
+    /* Results Header */
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .results-count {
+      font-size: 0.85rem;
+      color: #b8d4c8;
+    }
+
+    .results-count span {
+      color: #ffb347;
+      font-weight: 600;
+    }
+
+    .sort-info {
+      font-size: 0.75rem;
+      color: #8aa89c;
+    }
+
+    /* Accounts Grid - 3 Column Design */
+    .accounts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .account-card {
+      background: linear-gradient(135deg, rgba(20, 35, 28, 0.95), rgba(12, 22, 18, 0.95));
+      backdrop-filter: blur(10px);
+      border-radius: 28px;
+      border: 1px solid rgba(255, 180, 71, 0.15);
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .account-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 180, 71, 0.4);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    /* Coin Amount */
+    .coin-amount {
+      margin-bottom: 16px;
     }
 
     .coins {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       background: linear-gradient(135deg, #FFD966, #FFB347);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      display: inline-block;
+      line-height: 1.2;
+    }
+
+    .coin-unit {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #b8d4c8;
+    }
+
+    /* Price Tag */
+    .price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      background: linear-gradient(135deg, #ffb34720, #ff8c4220);
+      padding: 8px 18px;
+      border-radius: 40px;
+      margin: 12px 0;
+    }
+
+    .price-rupee {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ffdd99;
     }
 
     .price {
-      font-size: 1.1rem;
-      font-weight: 700;
+      font-size: 1.6rem;
+      font-weight: 800;
       color: #f5bc70;
-      margin-top: 4px;
     }
 
+    /* Account Code */
     .account-code {
-      background: #ffb34720;
-      display: inline-block;
-      padding: 4px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-family: monospace;
-      margin-top: 6px;
+      margin: 12px 0;
     }
 
-    .view-details-btn {
-      background: linear-gradient(135deg, #FFB347, #FF8C42);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 40px;
-      font-weight: 700;
-      font-size: 0.8rem;
-      color: #1a2a1a;
-      cursor: pointer;
-      transition: all 0.2s;
-      white-space: nowrap;
+    .account-code i {
+      color: #ffb347;
     }
 
-    .view-details-btn:active {
-      transform: scale(0.95);
+    /* Features */
+    .features-wrapper {
+      margin: 16px 0;
     }
 
-    .features-preview {
+    .features-title {
+      font-size: 0.7rem;
+      color: #8aa89c;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .features-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px dashed rgba(255,180,71,0.2);
+      gap: 8px;
     }
 
     .feature-badge {
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
       border-radius: 20px;
-      padding: 3px 8px;
-      font-size: 0.6rem;
+      padding: 5px 12px;
+      font-size: 0.7rem;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+      border: 1px solid rgba(255, 180, 71, 0.15);
     }
 
     .feature-badge i {
       color: #ffb347;
-      font-size: 0.6rem;
-    }
-
-    .results-info {
-      text-align: center;
       font-size: 0.7rem;
-      color: #e6d5b3;
-      margin: 10px 0;
     }
 
-    .info-section {
+    /* View Button */
+    .view-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #ffb347, #ff8c42);
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #1a2a1a;
+      cursor: pointer;
+      transition: all 0.2s;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin: 30px 0;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .view-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 20px rgba(255, 180, 71, 0.3);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 40px;
+      grid-column: 1 / -1;
+    }
+
+    .empty-state i {
+      font-size: 4rem;
+      color: #ffb347;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    .empty-state p {
+      color: #b8d4c8;
+      font-size: 1rem;
+    }
+
+    /* Info Sections */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
     }
 
     .info-card {
-      background: rgba(0,0,0,0.55);
+      background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(8px);
       border-radius: 24px;
-      padding: 18px;
-      border-left: 4px solid #ffb347;
+      padding: 24px;
+      border-left: 3px solid #ffb347;
     }
 
     .info-card h3 {
       color: #FFD966;
       font-size: 1.1rem;
-      margin-bottom: 10px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .info-card ul {
@@ -301,82 +421,156 @@
     }
 
     .info-card li {
-      font-size: 0.75rem;
-      margin-bottom: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
     }
 
     .info-card li i {
       color: #ffb347;
-      width: 18px;
+      width: 20px;
     }
 
     .howtobuy-section {
-      background: rgba(0,0,0,0.55);
+      background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(8px);
       border-radius: 24px;
-      padding: 18px;
-      margin: 20px 0;
-      border-left: 4px solid #ffb347;
+      padding: 24px;
+      border-left: 3px solid #ffb347;
     }
 
     .howtobuy-section h3 {
       color: #FFD966;
       font-size: 1.1rem;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .howtobuy-section ol {
-      margin-left: 20px;
-      font-size: 0.75rem;
-      line-height: 1.6;
+      margin-left: 24px;
+      font-size: 0.8rem;
+      line-height: 1.8;
+    }
+
+    .howtobuy-section li {
+      margin-bottom: 8px;
     }
 
     .terms-section {
-      background: rgba(0,0,0,0.55);
+      background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(8px);
       border-radius: 24px;
-      padding: 18px;
-      margin: 20px 0;
-      border-left: 4px solid #ffb347;
+      padding: 24px;
+      border-left: 3px solid #ffb347;
+      margin-bottom: 40px;
     }
 
     .terms-section h3 {
       color: #FFD966;
       font-size: 1.1rem;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .terms-section p {
-      font-size: 0.7rem;
-      margin-bottom: 8px;
+      font-size: 0.75rem;
+      margin-bottom: 10px;
       display: flex;
       align-items: flex-start;
-      gap: 8px;
+      gap: 12px;
     }
 
+    .terms-section p i {
+      color: #ffb347;
+      margin-top: 2px;
+    }
+
+    /* Footer */
     .footer {
       margin-top: 40px;
-      border-top: 1px solid #ffb347;
-      padding: 20px 0;
+      border-top: 1px solid rgba(255, 180, 71, 0.15);
+      padding: 30px 0;
       text-align: center;
     }
 
-    .footer a {
-      color: #FFC857;
-      text-decoration: none;
+    .footer p {
       font-size: 0.7rem;
-      margin: 0 8px;
+      color: #8aa89c;
     }
 
-    @media (min-width: 768px) {
-      .container { max-width: 800px; padding: 0 24px; }
-      .accounts-grid { gap: 20px; }
-      .account-card-content { padding: 20px; }
-      .coins { font-size: 1.4rem; }
-      .price { font-size: 1.3rem; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #ffc857;
+      text-decoration: none;
+      font-size: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .navbar {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 28px;
+      }
+      
+      .filter-scroll {
+        justify-content: center;
+      }
+      
+      .accounts-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      
+      .coins {
+        font-size: 1.5rem;
+      }
+      
+      .price {
+        font-size: 1.4rem;
+      }
+      
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .accounts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .accounts-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
@@ -385,102 +579,121 @@
 <div class="bg-balls" id="bgBalls"></div>
 
 <div class="container">
+  <!-- Header -->
   <div class="navbar">
     <div class="logo-area" onclick="window.location.href='index.html'">
       <img class="logo-img" src="logo.png" alt="My 8bp Accounts" onerror="this.src='https://placehold.co/200x200/2d5a3b/d4af37?text=8BP';">
       <div class="brand">
         <h1>My 8bp Accounts</h1>
-        <p>8 BALL POOL | NORMAL ACCOUNTS</p>
+        <p>8 BALL POOL | PREMIUM ACCOUNTS</p>
       </div>
     </div>
     <div class="action-buttons">
-      <a href="https://whatsapp.com/channel/0029Vb2IJGtCcW4nWh5kSa3e" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i></a>
-      <a href="https://t.me/pskgamesofficial" target="_blank" class="btn-tg"><i class="fab fa-telegram"></i></a>
-      <a href="index.html" class="btn-home"><i class="fas fa-home"></i></a>
+      <a href="https://whatsapp.com/channel/0029Vb2IJGtCcW4nWh5kSa3e" target="_blank" class="btn-icon btn-wa"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/pskgamesofficial" target="_blank" class="btn-icon btn-tg"><i class="fab fa-telegram"></i></a>
+      <a href="index.html" class="btn-icon btn-home"><i class="fas fa-home"></i></a>
     </div>
   </div>
 
+  <!-- Page Header -->
   <div class="page-header">
-    <h1><i class="fas fa-mobile-alt"></i> Normal Accounts</h1>
-    <p>Sorted by price • Tap any account to view details</p>
+    <h1><i class="fas fa-crown"></i> Normal Accounts</h1>
+    <p>Get it Linked with your own Facebook or Gmail</p>
   </div>
 
-  <div class="filter-bar" id="filterBar">
-    <div class="filter-chip active" data-filter="all">All (16)</div>
-    <div class="filter-chip" data-filter="under300">Under ₹300</div>
-    <div class="filter-chip" data-filter="300-500">₹300 - ₹500</div>
-    <div class="filter-chip" data-filter="500-800">₹500 - ₹800</div>
-    <div class="filter-chip" data-filter="above800">Above ₹800</div>
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <div class="filter-title">
+      <i class="fas fa-sliders-h"></i> Filter by price
+    </div>
+    <div class="filter-scroll" id="filterBar">
+      <div class="filter-chip active" data-filter="all">All</div>
+      <div class="filter-chip" data-filter="under300">Under ₹300</div>
+      <div class="filter-chip" data-filter="300-500">₹300 - ₹500</div>
+      <div class="filter-chip" data-filter="500-800">₹500 - ₹800</div>
+      <div class="filter-chip" data-filter="above800">Above ₹800</div>
+    </div>
   </div>
 
-  <div class="results-info" id="resultsInfo"></div>
+  <!-- Results Header -->
+  <div class="results-header">
+    <div class="results-count">
+      <i class="fas fa-chart-simple"></i> Showing <span id="showingCount">0</span> of <span id="totalCount">0</span> accounts
+    </div>
+    <div class="sort-info">
+      <i class="fas fa-arrow-up-wide-short"></i> Sorted by price (low to high)
+    </div>
+  </div>
 
+  <!-- Accounts Grid -->
   <div class="accounts-grid" id="accountsGrid"></div>
 
-  <div class="info-section">
+  <!-- Info Sections -->
+  <div class="info-grid">
     <div class="info-card">
-      <h3><i class="fas fa-check-circle"></i> Common Features (All Accounts)</h3>
+      <h3><i class="fas fa-gem"></i> What's Included</h3>
       <ul>
-        <li><i class="fas fa-table"></i> All Tables Open</li>
-        <li><i class="fas fa-signature"></i> Name Change Possible</li>
-        <li><i class="fas fa-leaf"></i> Fresh Account (No Warning)</li>
-        <li><i class="fas fa-trophy"></i> Free Cues From Trophy Road</li>
+        <li><i class="fas fa-check-circle"></i> All Tables Open</li>
+        <li><i class="fas fa-check-circle"></i> Name Change Possible</li>
+        <li><i class="fas fa-check-circle"></i> Fresh Account (No Warning)</li>
+        <li><i class="fas fa-check-circle"></i> Free Cues From Trophy Road</li>
       </ul>
+    </div>
+    <div class="howtobuy-section">
+      <h3><i class="fas fa-shopping-cart"></i> How to Buy</h3>
+      <ol>
+        <li>Tap on any account to view details</li>
+        <li>Create a NEW Gmail or Facebook account (<strong style="color:#FFB347;">⚠️ DO NOT open 8 Ball Pool</strong>)</li>
+        <li>Click "Buy Now" on the account page to message us on Telegram</li>
+        <li>Send credentials - we'll link your game ID</li>
+      </ol>
     </div>
   </div>
 
-  <div class="howtobuy-section">
-    <h3><i class="fas fa-shopping-cart"></i> How To Buy:</h3>
-    <ol>
-      <li>Tap on any account to view full details</li>
-      <li>Create a new Gmail or Facebook account (<strong>⚠️ DO NOT open 8 Ball Pool</strong>)</li>
-      <li>Click "Buy Now" on the account page to message us on Telegram</li>
-      <li>Send the credentials - we'll link your game ID</li>
-    </ol>
-  </div>
-
+  <!-- Terms -->
   <div class="terms-section">
     <h3><i class="fas fa-file-alt"></i> Terms & Conditions</h3>
     <p><i class="fas fa-coins"></i> Don't buy beyond budget — commission basis, non-refundable</p>
     <p><i class="fas fa-exchange-alt"></i> Accounts are outsourced → Non-Refundable After Purchase</p>
     <p><i class="fas fa-robot"></i> May match with tool players at high tables</p>
-    <p><i class="fas fa-comment-dots"></i> Doubts? Contact Telegram: <strong>@pskgamesofficial</strong></p>
+    <p><i class="fas fa-comment-dots"></i> Any doubts? Contact Telegram: <strong style="color:#FFB347;">@pskgamesofficial</strong></p>
   </div>
 
+  <!-- Footer -->
   <div class="footer">
-    <p>© 2026 My 8bp Accounts</p>
-    <div>
-      <a href="accounts.html">Normal</a> | 
-      <a href="pcacc.html">PC Made</a> | 
-      <a href="https://t.me/pskgamesofficial" target="_blank">Telegram</a>
+    <p>© 2026 My 8bp Accounts — Premium 8 Ball Pool Marketplace</p>
+    <div class="footer-links">
+      <a href="accounts.html">Normal Accounts</a>
+      <a href="pcacc.html">PC Made Accounts</a>
+      <a href="https://t.me/pskgamesofficial" target="_blank">Telegram Support</a>
     </div>
   </div>
 </div>
 
 <script>
-  // FILE NAMES WITHOUT # SYMBOL
+  // Account Data - SORTED BY PRICE (Low to High)
   const allAccounts = [
-    { coins: "107 Million Coins", price: 259, priceText: "₹ 259/-", code: "#10 - 04.09", page: "10-107M.html" },
-    { coins: "115 Million Coins", price: 269, priceText: "₹ 269/-", code: "#14 - 04.09", page: "14-115M.html" },
-    { coins: "153 Million Coins", price: 309, priceText: "₹ 309/-", code: "#7 - 04.09", page: "7-153M.html" },
-    { coins: "159 Million Coins", price: 319, priceText: "₹ 319/-", code: "#20 - 04.09", page: "20-159M.html" },
-    { coins: "212 Million Coins", price: 409, priceText: "₹ 409/-", code: "#12 - 04.09", page: "12-212M.html" },
-    { coins: "212 Million Coins", price: 409, priceText: "₹ 409/-", code: "#18 - 04.09", page: "18-212M.html" },
-    { coins: "214 Million Coins", price: 415, priceText: "₹ 415/-", code: "#23 - 04.09", page: "23-214M.html" },
-    { coins: "241 Million Coins", price: 435, priceText: "₹ 435/-", code: "#16 - 04.09", page: "16-241M.html" },
-    { coins: "283 Million Coins", price: 459, priceText: "₹ 459/-", code: "#4 - 04.09", page: "4-283M.html" },
-    { coins: "318 Million Coins", price: 479, priceText: "₹ 479/-", code: "#27 - 04.09", page: "27-318M.html" },
-    { coins: "416 Million Coins", price: 480, priceText: "₹ 480/-", code: "#57 - 04.09", page: "57-416M.html" },
-    { coins: "418 Million Coins", price: 545, priceText: "₹ 545/-", code: "#25 - 04.09", page: "25-418M.html" },
-    { coins: "544 Million Coins", price: 605, priceText: "₹ 605/-", code: "#103 - 04.09", page: "103-544M.html" },
-    { coins: "718 Million Coins", price: 669, priceText: "₹ 669/-", code: "#139 - 04.09", page: "139-718M.html" },
-    { coins: "1 Billion Coins", price: 750, priceText: "₹ 750/-", code: "#102 - 04.09", page: "102-1B.html" },
-    { coins: "1.8 Billion Coins", price: 1299, priceText: "₹ 1299/-", code: "#148 - 04.09", page: "148-1.8B.html" }
+    { coins: "107 Million", price: 259, priceText: "₹259", code: "#10 - 04.09", page: "10-107M.html" },
+    { coins: "115 Million", price: 269, priceText: "₹269", code: "#14 - 04.09", page: "14-115M.html" },
+    { coins: "153 Million", price: 309, priceText: "₹309", code: "#7 - 04.09", page: "7-153M.html" },
+    { coins: "159 Million", price: 319, priceText: "₹319", code: "#20 - 04.09", page: "20-159M.html" },
+    { coins: "212 Million", price: 409, priceText: "₹409", code: "#12 - 04.09", page: "12-212M.html" },
+    { coins: "212 Million", price: 409, priceText: "₹409", code: "#18 - 04.09", page: "18-212M.html" },
+    { coins: "214 Million", price: 415, priceText: "₹415", code: "#23 - 04.09", page: "23-214M.html" },
+    { coins: "241 Million", price: 435, priceText: "₹435", code: "#16 - 04.09", page: "16-241M.html" },
+    { coins: "283 Million", price: 459, priceText: "₹459", code: "#4 - 04.09", page: "4-283M.html" },
+    { coins: "318 Million", price: 479, priceText: "₹479", code: "#27 - 04.09", page: "27-318M.html" },
+    { coins: "416 Million", price: 480, priceText: "₹480", code: "#57 - 04.09", page: "57-416M.html" },
+    { coins: "418 Million", price: 545, priceText: "₹545", code: "#25 - 04.09", page: "25-418M.html" },
+    { coins: "544 Million", price: 605, priceText: "₹605", code: "#103 - 04.09", page: "103-544M.html" },
+    { coins: "718 Million", price: 669, priceText: "₹669", code: "#139 - 04.09", page: "139-718M.html" },
+    { coins: "1 Billion", price: 750, priceText: "₹750", code: "#102 - 04.09", page: "102-1B.html" },
+    { coins: "1.8 Billion", price: 1299, priceText: "₹1299", code: "#148 - 04.09", page: "148-1.8B.html" }
   ];
 
   const features = [
     { icon: "fas fa-table", text: "All Tables Open" },
-    { icon: "fas fa-signature", text: "Name Change Possible" },
+    { icon: "fas fa-signature", text: "Name Change" },
     { icon: "fas fa-leaf", text: "Fresh Account" },
     { icon: "fas fa-trophy", text: "Free Cues" }
   ];
@@ -488,44 +701,62 @@
   let currentFilter = 'all';
 
   function filterAccounts() {
-    if (currentFilter === 'all') return allAccounts;
-    else if (currentFilter === 'under300') return allAccounts.filter(acc => acc.price < 300);
-    else if (currentFilter === '300-500') return allAccounts.filter(acc => acc.price >= 300 && acc.price < 500);
-    else if (currentFilter === '500-800') return allAccounts.filter(acc => acc.price >= 500 && acc.price < 800);
-    else if (currentFilter === 'above800') return allAccounts.filter(acc => acc.price >= 800);
-    return allAccounts;
+    let filtered = [...allAccounts];
+    if (currentFilter === 'under300') {
+      filtered = filtered.filter(acc => acc.price < 300);
+    } else if (currentFilter === '300-500') {
+      filtered = filtered.filter(acc => acc.price >= 300 && acc.price < 500);
+    } else if (currentFilter === '500-800') {
+      filtered = filtered.filter(acc => acc.price >= 500 && acc.price < 800);
+    } else if (currentFilter === 'above800') {
+      filtered = filtered.filter(acc => acc.price >= 800);
+    }
+    return filtered;
   }
 
   function generateCards() {
     const filtered = filterAccounts();
     const grid = document.getElementById('accountsGrid');
-    const resultsInfo = document.getElementById('resultsInfo');
     
-    resultsInfo.innerHTML = `Showing ${filtered.length} of ${allAccounts.length} accounts`;
+    document.getElementById('showingCount').innerText = filtered.length;
+    document.getElementById('totalCount').innerText = allAccounts.length;
     
     if (filtered.length === 0) {
-      grid.innerHTML = `<div style="text-align: center; padding: 40px; background: rgba(0,0,0,0.5); border-radius: 24px;"><i class="fas fa-box-open" style="font-size: 3rem; color: #ffb347;"></i><p style="margin-top: 10px;">No accounts in this price range</p></div>`;
+      grid.innerHTML = `
+        <div class="empty-state">
+          <i class="fas fa-box-open"></i>
+          <p>No accounts in this price range</p>
+          <p style="font-size: 0.8rem; margin-top: 8px;">Try a different filter</p>
+        </div>
+      `;
       return;
     }
     
     let html = '';
     for (let acc of filtered) {
       let featuresHtml = '';
-      for (let feat of features.slice(0, 2)) {
+      for (let feat of features) {
         featuresHtml += `<span class="feature-badge"><i class="${feat.icon}"></i> ${feat.text}</span>`;
       }
       
       html += `
         <div class="account-card" onclick="window.location.href='${acc.page}'">
-          <div class="account-card-content">
-            <div class="account-info">
-              <span class="coins"><i class="fas fa-coins"></i> ${acc.coins}</span>
-              <div class="price">${acc.priceText}</div>
-              <div class="account-code"><i class="fas fa-hashtag"></i> ${acc.code}</div>
-              <div class="features-preview">${featuresHtml}</div>
+          <div class="card-content">
+            <div class="coin-amount">
+              <div class="coins">${acc.coins} <span class="coin-unit">Coins</span></div>
             </div>
-            <button class="view-details-btn" onclick="event.stopPropagation(); window.location.href='${acc.page}'">
-              View <i class="fas fa-arrow-right"></i>
+            <div class="price-tag">
+              <span class="price-rupee">₹</span>
+              <span class="price">${acc.priceText.replace('₹', '')}</span>
+              <span class="price-rupee" style="font-size: 0.7rem;">only</span>
+            </div>
+            <div class="account-code"><i class="fas fa-hashtag"></i> ${acc.code}</div>
+            <div class="features-wrapper">
+              <div class="features-title"><i class="fas fa-star"></i> What you get</div>
+              <div class="features-list">${featuresHtml}</div>
+            </div>
+            <button class="view-btn" onclick="event.stopPropagation(); window.location.href='${acc.page}'">
+              View Details <i class="fas fa-arrow-right"></i>
             </button>
           </div>
         </div>
@@ -549,17 +780,17 @@
   function createFloatingBalls() {
     const container = document.getElementById('bgBalls');
     const colors = ['#ffb347', '#ff6b35', '#f5c542', '#c7452b', '#2b7a3e', '#2a6f8f'];
-    for(let i = 0; i < 20; i++) {
+    for(let i = 0; i < 25; i++) {
       const ball = document.createElement('div');
       ball.className = 'floating-ball';
-      const size = Math.random() * 50 + 15;
+      const size = Math.random() * 60 + 15;
       ball.style.width = size + 'px';
       ball.style.height = size + 'px';
       ball.style.left = Math.random() * 100 + '%';
       ball.style.top = Math.random() * 100 + '%';
       ball.style.background = `radial-gradient(circle at 35% 35%, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
       ball.style.animationDelay = Math.random() * 20 + 's';
-      ball.style.animationDuration = Math.random() * 15 + 15 + 's';
+      ball.style.animationDuration = Math.random() * 18 + 12 + 's';
       container.appendChild(ball);
     }
   }
