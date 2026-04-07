@@ -450,7 +450,6 @@
     <div class="account-info">
       <div class="coins">416 Million Coins</div>
       
-      <!-- Price Tag - Updated to ₹539 -->
       <div class="price-tag">
         <span class="price-rupee">₹</span>
         <span class="price">539</span>
@@ -470,7 +469,8 @@
         <p><i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> Create a NEW Gmail or Facebook account. <strong style="color:#FFB347;">DO NOT open 8 Ball Pool with it.</strong> Send credentials via Telegram after clicking Buy Now.</p>
       </div>
 
-      <button class="buy-btn" onclick="window.open('https://t.me/pskgamesofficial?text=I would like to purchase an account. The account code is: #57 - 04.09.', '_blank')">
+      <!-- FIXED: Proper URL encoding for the message -->
+      <button class="buy-btn" id="buyNowBtn">
         <i class="fab fa-telegram"></i> Buy Now via Telegram <i class="fas fa-arrow-right"></i>
       </button>
     </div>
@@ -519,6 +519,14 @@
 </div>
 
 <script>
+  // FIXED: Properly encoded Telegram message with the account code
+  document.getElementById('buyNowBtn').addEventListener('click', function() {
+    const message = "I would like to purchase an account. The account code is: #57 - 04.09.";
+    const encodedMessage = encodeURIComponent(message);
+    const telegramUrl = `https://t.me/pskgamesofficial?text=${encodedMessage}`;
+    window.open(telegramUrl, '_blank');
+  });
+
   function createFloatingBalls() {
     const container = document.getElementById('bgBalls');
     const colors = ['#ffb347', '#ff6b35', '#f5c542', '#c7452b', '#2b7a3e', '#2a6f8f'];
