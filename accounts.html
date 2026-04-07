@@ -61,7 +61,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 0;
-      border-bottom: 1px solid rgba(255, 180, 71, 0.2);
+      border-bottom: 1px solid rgba(255, 180, 71, 0.3);
       margin-bottom: 32px;
       flex-wrap: wrap;
       gap: 16px;
@@ -156,7 +156,7 @@
       backdrop-filter: blur(10px);
       padding: 12px 20px;
       border-radius: 60px;
-      border: 1px solid rgba(255, 180, 71, 0.15);
+      border: 1px solid rgba(255, 180, 71, 0.2);
     }
 
     .filter-title {
@@ -174,19 +174,19 @@
     }
 
     .filter-chip {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.08);
       padding: 8px 20px;
       border-radius: 40px;
       font-size: 0.8rem;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.2s;
-      border: 1px solid rgba(255, 180, 71, 0.2);
+      border: 1px solid rgba(255, 180, 71, 0.25);
       color: #e6d5b3;
     }
 
     .filter-chip:hover {
-      background: rgba(255, 180, 71, 0.15);
+      background: rgba(255, 180, 71, 0.2);
     }
 
     .filter-chip.active {
@@ -221,7 +221,7 @@
       color: #8aa89c;
     }
 
-    /* Accounts Grid - 3 Column Design */
+    /* Accounts Grid */
     .accounts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -229,20 +229,41 @@
       margin-bottom: 40px;
     }
 
+    /* Account Card - Enhanced with thicker border */
     .account-card {
       background: linear-gradient(135deg, rgba(20, 35, 28, 0.95), rgba(12, 22, 18, 0.95));
       backdrop-filter: blur(10px);
       border-radius: 28px;
-      border: 1px solid rgba(255, 180, 71, 0.15);
+      border: 2.5px solid rgba(255, 180, 71, 0.4);
       transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       cursor: pointer;
       overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Inner glow effect for better separation */
+    .account-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 28px;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255, 180, 71, 0.25), rgba(255, 140, 66, 0.08));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
     .account-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(255, 180, 71, 0.4);
-      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 180, 71, 0.7);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.4);
     }
 
     .card-content {
@@ -279,6 +300,7 @@
       padding: 8px 18px;
       border-radius: 40px;
       margin: 12px 0;
+      border: 1px solid rgba(255, 180, 71, 0.25);
     }
 
     .price-rupee {
@@ -298,12 +320,13 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.5);
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.75rem;
       font-family: monospace;
       margin: 12px 0;
+      border: 1px solid rgba(255, 180, 71, 0.2);
     }
 
     .account-code i {
@@ -331,14 +354,14 @@
     }
 
     .feature-badge {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.5);
       border-radius: 20px;
       padding: 5px 12px;
       font-size: 0.7rem;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      border: 1px solid rgba(255, 180, 71, 0.15);
+      border: 1px solid rgba(255, 180, 71, 0.2);
     }
 
     .feature-badge i {
@@ -400,7 +423,7 @@
     }
 
     .info-card {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(8px);
       border-radius: 24px;
       padding: 24px;
@@ -409,7 +432,7 @@
 
     .info-card h3 {
       color: #FFD966;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -421,7 +444,7 @@
     }
 
     .info-card li {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       margin-bottom: 10px;
       display: flex;
       align-items: center;
@@ -430,11 +453,11 @@
 
     .info-card li i {
       color: #ffb347;
-      width: 20px;
+      width: 18px;
     }
 
     .howtobuy-section {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(8px);
       border-radius: 24px;
       padding: 24px;
@@ -443,7 +466,7 @@
 
     .howtobuy-section h3 {
       color: #FFD966;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -451,8 +474,8 @@
     }
 
     .howtobuy-section ol {
-      margin-left: 24px;
-      font-size: 0.8rem;
+      margin-left: 20px;
+      font-size: 0.75rem;
       line-height: 1.8;
     }
 
@@ -461,7 +484,7 @@
     }
 
     .terms-section {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(8px);
       border-radius: 24px;
       padding: 24px;
@@ -471,7 +494,7 @@
 
     .terms-section h3 {
       color: #FFD966;
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -494,7 +517,7 @@
     /* Footer */
     .footer {
       margin-top: 40px;
-      border-top: 1px solid rgba(255, 180, 71, 0.15);
+      border-top: 1px solid rgba(255, 180, 71, 0.2);
       padding: 30px 0;
       text-align: center;
     }
@@ -522,7 +545,7 @@
       text-decoration: underline;
     }
 
-    /* Responsive */
+    /* Responsive - Enhanced Mobile Visibility */
     @media (max-width: 768px) {
       .container {
         padding: 0 16px;
@@ -545,7 +568,17 @@
       
       .accounts-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 18px;
+      }
+      
+      /* Stronger card border on mobile - increased thickness */
+      .account-card {
+        border: 3px solid rgba(255, 180, 71, 0.5);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      }
+      
+      .account-card:hover {
+        transform: translateY(-4px);
       }
       
       .coins {
@@ -558,6 +591,10 @@
       
       .page-header h1 {
         font-size: 1.6rem;
+      }
+
+      .card-content {
+        padding: 20px;
       }
     }
 
@@ -671,7 +708,7 @@
 </div>
 
 <script>
-  // Account Data - SORTED BY PRICE (Low to High)
+  // Account Data - SORTED BY PRICE (Low to High) - UPDATED PRICE FOR #57
   const allAccounts = [
     { coins: "107 Million", price: 259, priceText: "₹259", code: "#10 - 04.09", page: "10-107M.html" },
     { coins: "115 Million", price: 269, priceText: "₹269", code: "#14 - 04.09", page: "14-115M.html" },
@@ -683,7 +720,7 @@
     { coins: "241 Million", price: 435, priceText: "₹435", code: "#16 - 04.09", page: "16-241M.html" },
     { coins: "283 Million", price: 459, priceText: "₹459", code: "#4 - 04.09", page: "4-283M.html" },
     { coins: "318 Million", price: 479, priceText: "₹479", code: "#27 - 04.09", page: "27-318M.html" },
-    { coins: "416 Million", price: 519, priceText: "₹519", code: "#57 - 04.09", page: "57-416M.html" },
+    { coins: "416 Million", price: 539, priceText: "₹539", code: "#57 - 04.09", page: "57-416M.html" },  // Updated price
     { coins: "418 Million", price: 545, priceText: "₹545", code: "#25 - 04.09", page: "25-418M.html" },
     { coins: "544 Million", price: 605, priceText: "₹605", code: "#103 - 04.09", page: "103-544M.html" },
     { coins: "718 Million", price: 669, priceText: "₹669", code: "#139 - 04.09", page: "139-718M.html" },
