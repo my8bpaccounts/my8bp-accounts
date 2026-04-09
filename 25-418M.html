@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>25 - 418M Coins | My 8bp Accounts</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 30%, #0a1a0f, #030805);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .bg-balls {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .floating-ball {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.08;
+      animation: floatBall 20s infinite ease-in-out;
+    }
+
+    @keyframes floatBall {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-50px) rotate(180deg); }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Header */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 3px solid #ffb347;
+      margin-bottom: 20px;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      background: linear-gradient(135deg, #1e3a2a, #0a2a1a);
+      border-radius: 50%;
+      border: 2px solid #ffd966;
+      padding: 4px;
+    }
+
+    .brand h1 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: 'Orbitron', monospace;
+      background: linear-gradient(135deg, #FFD966, #FFA559);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .brand p {
+      font-size: 0.6rem;
+      color: #ffdd99;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-icon:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-wa { background: #25D366; color: #fff; }
+    .btn-tg { background: #26A5E4; color: #fff; }
+    .btn-home { background: linear-gradient(135deg, #F4C542, #E5A42B); color: #1f2a1b; }
+
+    .back-btn {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #ffdd99;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,180,71,0.2);
+      transform: translateX(-3px);
+    }
+
+    /* Account Card */
+    .account-detail-card {
+      background: rgba(15, 25, 22, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 180, 71, 0.4);
+      margin: 20px 0;
+    }
+
+    /* Video */
+    .video-container {
+      position: relative;
+      width: 100%;
+      background: #000;
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Account Info */
+    .account-info {
+      padding: 24px;
+    }
+
+    .coins {
+      font-size: 1.8rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFD966, #FFB347);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin: 8px 0;
+    }
+
+    /* Price Tag */
+    .price-tag {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 4px;
+      background: linear-gradient(135deg, #ffb34720, #ff8c4220);
+      padding: 8px 18px;
+      border-radius: 40px;
+      margin: 12px 0;
+    }
+
+    .price-rupee {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #ffdd99;
+    }
+
+    .price {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #f5bc70;
+    }
+
+    .account-code {
+      background: #ffb34720;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-family: monospace;
+      margin: 10px 0;
+    }
+
+    .features-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+      padding-top: 15px;
+      border-top: 1px dashed rgba(255,180,71,0.3);
+    }
+
+    .feature-badge {
+      background: rgba(0,0,0,0.5);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .feature-badge i {
+      color: #ffb347;
+    }
+
+    /* Warning Box */
+    .warning-box {
+      background: rgba(255,100,100,0.12);
+      border-left: 4px solid #ff6b6b;
+      padding: 14px;
+      border-radius: 16px;
+      margin: 20px 0;
+    }
+
+    .warning-box p {
+      font-size: 0.75rem;
+      color: #ffaaaa;
+      line-height: 1.4;
+    }
+
+    .warning-box strong {
+      color: #ffb347;
+    }
+
+    /* Buy Button */
+    .buy-btn {
+      width: 100%;
+      background: linear-gradient(95deg, #25A36F, #1f8a5c);
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .buy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(37,211,102,0.3);
+    }
+
+    .buy-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* Info Cards */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin: 30px 0;
+    }
+
+    .info-card {
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 20px;
+      border-left: 3px solid #ffb347;
+    }
+
+    .info-card h3 {
+      color: #FFD966;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-card ul {
+      list-style: none;
+    }
+
+    .info-card li {
+      font-size: 0.75rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .info-card li i {
+      color: #ffb347;
+      width: 18px;
+    }
+
+    .howtobuy-section {
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 20px;
+      border-left: 3px solid #ffb347;
+    }
+
+    .howtobuy-section h3 {
+      color: #FFD966;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .howtobuy-section ol {
+      margin-left: 20px;
+      font-size: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .howtobuy-section li {
+      margin-bottom: 6px;
+    }
+
+    .terms-section {
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 20px;
+      border-left: 3px solid #ffb347;
+      margin-bottom: 30px;
+    }
+
+    .terms-section h3 {
+      color: #FFD966;
+      font-size: 1rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terms-section p {
+      font-size: 0.7rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .terms-section p i {
+      color: #ffb347;
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,180,71,0.2);
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 0.65rem;
+      color: #8aa89c;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: #ffc857;
+      text-decoration: none;
+      font-size: 0.7rem;
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .container { max-width: 750px; }
+    }
+
+    @media (max-width: 480px) {
+      .coins { font-size: 1.5rem; }
+      .price { font-size: 1.4rem; }
+      .account-info { padding: 20px; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-balls" id="bgBalls"></div>
+
+<div class="container">
+  <!-- Header -->
+  <div class="navbar">
+    <div class="logo-area" onclick="window.location.href='index.html'">
+      <img class="logo-img" src="logo.png" alt="My 8bp Accounts" onerror="this.src='https://placehold.co/200x200/2d5a3b/d4af37?text=8BP';">
+      <div class="brand">
+        <h1>My 8bp Accounts</h1>
+        <p>8 BALL POOL | ACCOUNT DETAILS</p>
+      </div>
+    </div>
+    <div class="action-buttons">
+      <a href="https://whatsapp.com/channel/0029Vb2IJGtCcW4nWh5kSa3e" target="_blank" class="btn-icon btn-wa"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/pskgamesofficial" target="_blank" class="btn-icon btn-tg"><i class="fab fa-telegram"></i></a>
+      <a href="index.html" class="btn-icon btn-home"><i class="fas fa-home"></i></a>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <a href="accounts.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to All Accounts</a>
+
+  <!-- Account Detail Card -->
+  <div class="account-detail-card">
+    <div class="video-container">
+      <video controls controlslist="nodownload" disablepictureinpicture preload="metadata">
+        <source src="normal_accounts/25-418M.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="account-info">
+      <div class="coins">418 Million Coins</div>
+      
+      <div class="price-tag">
+        <span class="price-rupee">₹</span>
+        <span class="price">545</span>
+        <span class="price-rupee" style="font-size: 0.7rem;">only</span>
+      </div>
+      
+      <div class="account-code"><i class="fas fa-hashtag"></i> Account Code: #25 - 04.09</div>
+
+      <div class="features-list">
+        <span class="feature-badge"><i class="fas fa-table"></i> All Tables Open</span>
+        <span class="feature-badge"><i class="fas fa-signature"></i> Name Change Possible</span>
+        <span class="feature-badge"><i class="fas fa-leaf"></i> Fresh Account (No Warning)</span>
+        <span class="feature-badge"><i class="fas fa-trophy"></i> Free Cues From Trophy Road</span>
+      </div>
+
+      <div class="warning-box">
+        <p><i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> Create a NEW Gmail or Facebook account. <strong style="color:#FFB347;">DO NOT open 8 Ball Pool with it.</strong> Send credentials via Telegram after clicking Buy Now.</p>
+      </div>
+
+      <button class="buy-btn" id="buyNowBtn">
+        <i class="fab fa-telegram"></i> Buy Now via Telegram <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Info Sections -->
+  <div class="info-grid">
+    <div class="info-card">
+      <h3><i class="fas fa-gem"></i> Account Features</h3>
+      <ul>
+        <li><i class="fas fa-check-circle"></i> All Tables Open</li>
+        <li><i class="fas fa-check-circle"></i> Name Change Possible</li>
+        <li><i class="fas fa-check-circle"></i> Fresh Account (No Warning)</li>
+        <li><i class="fas fa-check-circle"></i> Free Cues From Trophy Road</li>
+      </ul>
+    </div>
+    <div class="howtobuy-section">
+      <h3><i class="fas fa-shopping-cart"></i> How to Buy</h3>
+      <ol>
+        <li>Create a NEW Gmail or Facebook account (<strong style="color:#FFB347;">⚠️ DO NOT open 8 Ball Pool</strong>)</li>
+        <li>Click "Buy Now" above to message us on Telegram</li>
+        <li>Send your new account credentials</li>
+        <li>We'll link your game ID and return the ready account</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Terms -->
+  <div class="terms-section">
+    <h3><i class="fas fa-file-alt"></i> Terms & Conditions</h3>
+    <p><i class="fas fa-coins"></i> Don't buy beyond budget — commission basis, non-refundable</p>
+    <p><i class="fas fa-exchange-alt"></i> Accounts are outsourced → Non-Refundable After Purchase</p>
+    <p><i class="fas fa-robot"></i> May match with tool players at high tables</p>
+    <p><i class="fas fa-comment-dots"></i> Any doubts? Contact Telegram: <strong style="color:#FFB347;">@pskgamesofficial</strong></p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>© 2026 My 8bp Accounts — Premium 8 Ball Pool Marketplace</p>
+    <div class="footer-links">
+      <a href="accounts.html">Normal Accounts</a>
+      <a href="pcacc.html">PC Made Accounts</a>
+      <a href="https://t.me/pskgamesofficial" target="_blank">Telegram Support</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Properly encoded Telegram message with the account code
+  document.getElementById('buyNowBtn').addEventListener('click', function() {
+    const message = "I would like to purchase an account. The account code is: #25 - 04.09.";
+    const encodedMessage = encodeURIComponent(message);
+    const telegramUrl = `https://t.me/pskgamesofficial?text=${encodedMessage}`;
+    window.open(telegramUrl, '_blank');
+  });
+
+  function createFloatingBalls() {
+    const container = document.getElementById('bgBalls');
+    const colors = ['#ffb347', '#ff6b35', '#f5c542', '#c7452b', '#2b7a3e', '#2a6f8f'];
+    for(let i = 0; i < 20; i++) {
+      const ball = document.createElement('div');
+      ball.className = 'floating-ball';
+      const size = Math.random() * 50 + 15;
+      ball.style.width = size + 'px';
+      ball.style.height = size + 'px';
+      ball.style.left = Math.random() * 100 + '%';
+      ball.style.top = Math.random() * 100 + '%';
+      ball.style.background = `radial-gradient(circle at 35% 35%, ${colors[Math.floor(Math.random() * colors.length)]}, ${colors[Math.floor(Math.random() * colors.length)]})`;
+      ball.style.animationDelay = Math.random() * 20 + 's';
+      ball.style.animationDuration = Math.random() * 15 + 15 + 's';
+      container.appendChild(ball);
+    }
+  }
+  createFloatingBalls();
+</script>
+</body>
+</html>
